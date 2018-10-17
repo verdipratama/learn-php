@@ -23,8 +23,8 @@
         $email   = htmlspecialchars($data["email"]);
         $jurusan = htmlspecialchars($data["jurusan"]);
 	
-		$gambar = upload(); //upload gambar
-		if(!$gambar) { // jika gambar false 
+		$gambar = upload(); // jalankan fungsi upload gambar
+		if(!$gambar) { // jika gambar false , ! not gambar
 
 			return false; // cek apakah data berhasil atau tidak (kalo gagal -1 klo tidak 1)
 		}
@@ -42,27 +42,28 @@
 
 	function upload() {
 		// Ambil data dari tiap element
-		$namaFile = $_FILES['gambar']['name'];
+		$namaFile = $_FILES['gambar']['name']; // $_FILES adalah arrya multi dimensi jd bisa numerik dan assos
 		$ukuranFile = $_FILES['gambar']['size'];
 		$error = $_FILES['gambar']['error'];
 		$tmpName = $_FILES['gambar']['tmp_name'];
 
 		// cek apakah tidak ada gambar yang diupload
-		if($error === 4) {
+		if($error === 4) { // 4 itu tdk ada gambar yg diupload
             echo "
             <script>
             alert('Pilih gambar terlebih dahulu!');
             </script>
 			";
 
-			return false; // cek apakah data berhasil atau tidak
+			return false; //  berhentikan function / cek apakah data berhasil atau tidak
 		}
 
-		// cek apakah yang diupload adalah gambar atau tidak?
+		// cek apakah yang diupload adalah gambar atau bukan?
 		$ekstensiGambarValid = ['jpg','jpeg','png']; // deklarasikan format gambarnya
 		$ekstensiGambar = explode('.',$namaFile); // memecah sebuah string jd array agar tidak ada nama yg sama
-		$ekstensiGambar = strtolower(end($ekstensiGambar)); // membuat string nama kecil
-
+		$ekstensiGambar = strtolower(end($ekstensiGambar)); // ambil yg terakhir dan dirubah jd huruf kcl
+		// in_array adakah sebuah string dalam sebuah array
+		// !in_array = kalo tidak ada ekstensi gambar
 		if(!in_array($ekstensiGambar, $ekstensiGambarValid)) { // kasih pesan kalo ada yang tidak valid
             echo "
             <script>
@@ -73,7 +74,7 @@
 			return false;
 		}
 
-		// cek jika ukurannya terlalu besar
+		// cek jika ukurannya terlalu besar - 1jt itu 1mb
 		if($ukuranFile > 1000000) {
             echo "
             <script>
@@ -84,16 +85,16 @@
 			return false;
 		}
 
-		// lolos pengecekan, gambar siap di upload!
 		// generate nama gambar baru
-		$namaFileBaru = uniqid();
-		$namaFileBaru .= '.';
+		$namaFileBaru = uniqid(); // uniqid adalah akan membuat string random
+		$namaFileBaru .= '.'; // . adalah untuk extensi file 
 		$namaFileBaru .= $ekstensiGambar;
-		// var_dump($namaFileBaru); die;
+		// var_dump($namaFileBaru); die; adalah script yg dibawah tdk akan dijalankan
 
-		move_uploaded_file($tmpName, 'img/' . $namaFileBaru);
+		// lolos pengecekan, gambar siap di upload!
+		move_uploaded_file($tmpName, 'img/' . $namaFileBaru); // function php untuk memindahkan ke dalam server
 
-		return $namaFileBaru; // berubah nama baru
+		return $namaFileBaru; // berubah nama baru - kenapa di return? supaya isi dari gambar adalah nama filenya
 	}
 
 	function hapus($id) {
@@ -108,17 +109,17 @@
 		global $db;
 
 		$id      = $data["id"]; // tdk menggunakan htmlsc karena tdk diinputkan oleh user
-        $nama    = htmlspecialchars($data["nama"]);
+        $nama    = htmlspecialchars($data["nama"]); // ngambil dari varible html
         $nim     = htmlspecialchars($data["nim"]);
         $email   = htmlspecialchars($data["email"]);
         $jurusan = htmlspecialchars($data["jurusan"]);
 		$gambarLama = htmlspecialchars($data["gambarLama"]);
 
 		// cek apakah user pilih gambar baru atau tidak
-		if($_FILES['gambar']['error'] === 4) {
+		if($_FILES['gambar']['error'] === 4) { // 4 adalah tidak ada gambar
 			$gambar = $gambarLama; // gambar diisi dengan gambar lama
 		} else {
-			$gambar  = upload();
+			$gambar  = upload(); // pake function upload
 		}
 
         // query insert data - GAK BOLEH KETUKER

@@ -42,6 +42,7 @@
 </head>
 <body>
     <h1>Ubah Data</h1>
+    <!-- enctype adalah tipe encoding untuk menangani file -->
     <form action="" method="post" enctype="multipart/form-data">
     <!-- Membuat identifier yang tidak keliatan oleh user -->
     <input type="hidden" name="id" value="<?php echo $mhs["id"]; ?>">
