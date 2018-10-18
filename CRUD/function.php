@@ -150,9 +150,9 @@
 
 	function registrasi($data) {
 		global $db;
-
-		$username = strtolower(stripslashes($data["username"]));
-		$password = mysqli_real_escape_string($db, $data["password"]);
+		// $data harus disimpan dalam variable
+		$username = strtolower(stripslashes($data["username"])); // strtolower huruf kcl - stripslash huruf bsr kcl
+		$password = mysqli_real_escape_string($db, $data["password"]); // untuk memungkingkan user ada tanda kutipnya
 		$password2 = mysqli_real_escape_string($db, $data["password2"]);
 
 		// cek username sudah ada apa belum
@@ -164,11 +164,11 @@
             </script>
 			";
 
-			return false;
+			return false; // berhentikan function supaya yg dibawah tidak dijalankan
 		}
 
 		// cek konfirmasi password
-		if($password !== $password2) {
+		if($password !== $password2) { // jika password tidak sesuai
             echo "
             <script>
             alert('konfirmasi password tidak sesuai!');
@@ -177,14 +177,13 @@
 			
 			return false; // berhentikan functionya supaya masuk ke else di register
 		}
-		
+		// return 1;
 		// enkripsi password
 		$password = password_hash($password, PASSWORD_DEFAULT);
 		// var_dump($password); die;
 
 		// tambah userbaru ke database
-		mysqli_query($db, "INSERT INTO user VALUES('','$username','$password')");
-
-		return mysqli_affected_rows($db); // cek apakah data berhasil diupdate atau tidak (kalo gagal -1 klo tidak 1)
+		mysqli_query($db, "INSERT INTO user VALUES('','$username','$password')"); // kosongkan id krna auto increment
+		return mysqli_affected_rows($db); // untuk menghasilkan +1 jika berhasil -1 jika gagal
 	}
 ?>

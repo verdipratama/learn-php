@@ -1,7 +1,7 @@
 <?php 
     // memanggil file function.php
     require 'function.php';
-
+    // ketika tombol registrasi dipencet maka?
     if(isset($_POST["register"])) {
         // cek apakah registrasi berhasil
         if (registrasi($_POST) > 0) { // APAKAH FUNCTION Registrasi MENGEMBALIKAN LEBIH BESAR DARI 0 ?
@@ -13,6 +13,15 @@
         } else {
             echo mysqli_error($db);
         }
+    }
+    // cek apakah tombol submit sudah ditekan apa belum
+    if (isset($_POST["username"]) && isset($_POST["password"])) {
+        // jika benar, tampilkan ke halaman admin
+        header("Location: index.php");
+        exit;       
+    } else {
+        // jika salah, tampilkan pesan kesalahan
+        $error = true;
     }
 ?>
 <!DOCTYPE html>
