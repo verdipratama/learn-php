@@ -42,10 +42,10 @@
 
 	function upload() {
 		// Ambil data dari tiap element
-		$namaFile = $_FILES['gambar']['name']; // $_FILES adalah arrya multi dimensi jd bisa numerik dan assos
+		$namaFile   = $_FILES['gambar']['name']; // $_FILES adalah arrya multi dimensi jd bisa numerik dan assos
 		$ukuranFile = $_FILES['gambar']['size'];
-		$error = $_FILES['gambar']['error'];
-		$tmpName = $_FILES['gambar']['tmp_name'];
+		$error      = $_FILES['gambar']['error'];
+		$tmpName    = $_FILES['gambar']['tmp_name'];
 
 		// cek apakah tidak ada gambar yang diupload
 		if($error === 4) { // 4 itu tdk ada gambar yg diupload
@@ -86,7 +86,7 @@
 		}
 
 		// generate nama gambar baru
-		$namaFileBaru = uniqid(); // uniqid adalah akan membuat string random
+		$namaFileBaru  = uniqid(); // uniqid adalah akan membuat string random
 		$namaFileBaru .= '.'; // . adalah untuk extensi file 
 		$namaFileBaru .= $ekstensiGambar;
 		// var_dump($namaFileBaru); die; adalah script yg dibawah tdk akan dijalankan
