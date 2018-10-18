@@ -17,7 +17,7 @@
     // cek apakah tombol submit sudah ditekan apa belum
     if (isset($_POST["username"]) && isset($_POST["password"])) {
         // jika benar, tampilkan ke halaman admin
-        header("Location: index.php");
+        header("Location: login.php");
         exit;       
     } else {
         // jika salah, tampilkan pesan kesalahan
