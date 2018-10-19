@@ -151,8 +151,8 @@
 	function registrasi($data) {
 		global $db;
 		// $data harus disimpan dalam variable
-		$username = strtolower(stripslashes($data["username"])); // strtolower huruf kcl - stripslash huruf bsr kcl
-		$password = mysqli_real_escape_string($db, $data["password"]); // untuk memungkingkan user ada tanda kutipnya
+		$username  = strtolower(stripslashes($data["username"])); // strtolower huruf kcl - stripslash huruf bsr kcl
+		$password  = mysqli_real_escape_string($db, $data["password"]); // untuk memungkingkan user ada tanda kutipnya
 		$password2 = mysqli_real_escape_string($db, $data["password2"]);
 
 		// cek username sudah ada apa belum
