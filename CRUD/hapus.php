@@ -1,4 +1,12 @@
 <?php
+    // jalankan sessionnya terlebih dahulu
+    session_start();
+    // jika ! tidak ada session login maka?
+    if ( !isset($_SESSION["login"]) ) {
+        header("Location: login.php"); // kembalikan ke halaman login
+        exit;
+    }
+    
     require 'function.php';
 
     $id = $_GET["id"];

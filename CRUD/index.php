@@ -1,4 +1,11 @@
 <?php
+    // jalankan sessionnya terlebih dahulu
+    session_start();
+    // jika ! tidak ada session login maka?
+    if ( !isset($_SESSION["login"]) ) {
+        header("Location: login.php"); // kembalikan ke halaman login
+        exit;
+    }
     // memanggil file function.php
     require 'function.php';
     // Membuat variable mahasiswa DAN memangil query yand ada di db
@@ -23,6 +30,7 @@
     <script src=""></script>
 </head>
 <body>
+    <a href="logout.php">LOGOUT!</a>
     <h1>Daftar Mahasiswa</h1>
     <a href="tambah.php">TAMBAH [+]</a>
     <br>

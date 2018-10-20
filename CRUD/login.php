@@ -1,4 +1,11 @@
 <?php
+    // jalankan sessionnya - biasakan jalankan dulu sessionnya taro di atas
+    session_start();
+    // kalo sudah login, jangan tampilkan halaman login
+    if( isset($_SESSION["login"])) {
+        header("Location: index.php");
+        exit;
+    }
     // panggil function
     require 'function.php';
     // cek apakah tombol submit sudah ditekan apa belum?
@@ -7,13 +14,16 @@
         $username = $_POST["username"];
         $password = $_POST["password"];
 
+        // cek username di db
         $result = mysqli_query($db, "SELECT * FROM user WHERE username = '$username'");
 
-        // cek username
+        // cek username -> kalo ada
         if( mysqli_num_rows($result) === 1) { // APAKAH ada berapa baris yang dikembalikan dari fungsi di DB, JIKA HASILNYA SAMA DENGAN 1(KALO ADA)
             // cek password
             $row = mysqli_fetch_assoc($result); // artinya DIDALAM FUNGSI ROW ADA datanya DI DB, ID USERNAME dan PASSWORD
             if (password_verify($password, $row["password"])) { // ngecek sebuah string sama ga dengan hashnya, kebalikan dari password hash = untuk mengacak string jd hash
+                // set session
+                $_SESSION["login"] = true; // variable session keynya login diisi boolean
                 header("Location: index.php");
                 exit;
             }
