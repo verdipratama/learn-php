@@ -4,7 +4,7 @@
     // Penggunaan shopping cart tanpa menghilangkan belanja yang sudah di pilih
     // Penggunaan personalisasi untuk mengetauhi perilaku dari seorang user
     // Membuat Cookie
-    // Membuat parameter & value!
+    // Membuat parameter key & value!
     setcookie('nama','Ferdi Pratama');
 
 ?>
