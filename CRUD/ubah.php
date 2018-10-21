@@ -17,7 +17,7 @@
     // varible $mhs samakan dengan value pada form html
     $mhs = query("SELECT * FROM mahasiswa WHERE id = $id")[0]; // [0] adalah array numerik
 
-    if(isset($_POST["submit"])) {
+    if ( isset($_POST["submit"])) {
         // var_dump($_POST);
         
         // cek apakah data berhasil di ubah atau tidak

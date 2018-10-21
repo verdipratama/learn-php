@@ -64,7 +64,7 @@
 		$ekstensiGambar = strtolower(end($ekstensiGambar)); // ambil yg terakhir dan dirubah jd huruf kcl
 		// in_array adakah sebuah string dalam sebuah array
 		// !in_array = kalo tidak ada ekstensi gambar
-		if(!in_array($ekstensiGambar, $ekstensiGambarValid)) { // kasih pesan kalo ada yang tidak valid
+		if ( !in_array($ekstensiGambar, $ekstensiGambarValid)) { // kasih pesan kalo ada yang tidak valid
             echo "
             <script>
             alert('Yang anda UPLOAD BUKAN GAMBAR!');
@@ -75,7 +75,7 @@
 		}
 
 		// cek jika ukurannya terlalu besar - 1jt itu 1mb
-		if($ukuranFile > 1000000) {
+		if ($ukuranFile > 1000000) {
             echo "
             <script>
             alert('Ukuran gambar TERLALU BESAR!');
@@ -116,7 +116,7 @@
 		$gambarLama = htmlspecialchars($data["gambarLama"]);
 
 		// cek apakah user pilih gambar baru atau tidak
-		if($_FILES['gambar']['error'] === 4) { // 4 adalah tidak ada gambar
+		if ($_FILES['gambar']['error'] === 4) { // 4 adalah tidak ada gambar
 			$gambar = $gambarLama; // gambar diisi dengan gambar lama
 		} else {
 			$gambar  = upload(); // pake function upload
@@ -168,7 +168,7 @@
 		}
 
 		// cek konfirmasi password
-		if($password !== $password2) { // jika password tidak sesuai
+		if ($password !== $password2) { // jika password tidak sesuai
             echo "
             <script>
             alert('konfirmasi password tidak sesuai!');

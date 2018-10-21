@@ -15,7 +15,7 @@
     // $mahasiswa = query("SELECT * FROM mahasiswa ORDER BY id DESC");
 
     // jika tombol cari dipencet, ambil apapun yg diketikan oleh user masukan ke function cari
-    if(isset($_POST["cari"])) {
+    if  ( isset($_POST["cari"]) ) {
         $mahasiswa = cari($_POST["keyword"]); // mendapakan data dari apapun yg diketikan user
     }
 ?>

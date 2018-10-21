@@ -4,7 +4,7 @@
     // panggil function
     require 'function.php';
     // set cookie dulu sebelum session
-    if( isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
+    if ( isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
         $id  = $_COOKIE['id'];
         $key = $_COOKIE['key'];
 
@@ -18,12 +18,12 @@
         }
     }
     // kalo sudah login, jangan tampilkan halaman login
-    if( isset($_SESSION["login"])) {
+    if ( isset($_SESSION["login"])) {
         header("Location: index.php");
         exit;
     }
     // cek apakah tombol submit sudah ditekan apa belum?
-    if( isset($_POST["login"])) {
+    if ( isset($_POST["login"])) {
         // menangkap username dan password dari POST
         $username = $_POST["username"];
         $password = $_POST["password"];

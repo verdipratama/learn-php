@@ -2,7 +2,7 @@
     // memanggil file function.php
     require 'function.php';
     // ketika tombol registrasi dipencet maka?
-    if(isset($_POST["register"])) {
+    if ( isset($_POST["register"])) {
         // cek apakah registrasi berhasil
         if (registrasi($_POST) > 0) { // APAKAH FUNCTION Registrasi MENGEMBALIKAN LEBIH BESAR DARI 0 ?
             echo "

@@ -9,7 +9,7 @@
     
     require 'function.php';
     // cek apakah tombol submit sudah ditekan apa belum
-    if(isset($_POST["submit"])) {
+    if ( isset($_POST["submit"])) {
         // var_dump($_POST);
         
         // cek apakah data berhasil di tambahkan atau tidak
