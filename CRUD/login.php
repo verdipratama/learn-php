@@ -1,7 +1,7 @@
 <?php
     // jalankan sessionnya - biasakan jalankan dulu sessionnya taro di atas
     session_start();
-    // panggil function
+    // panggil function taro diatas biar bisa berfungsi
     require 'function.php';
     // set cookie dulu sebelum session
     if ( isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
@@ -10,11 +10,12 @@
 
         // ambil username berdasarkan ID
         $result = mysqli_query($db, "SELECT username FROM user WHERE id = $id");
-        $row = mysqli_fetch_assoc($result);
+        $row = mysqli_fetch_assoc($result); // ambil username dari table user simpan di variable $row
 
         // cek cookie dan username sama apa tidak?
+        // key adalah username yg sudah diacak!
         if ( $key === hash('sha256', $row['username']) ) {
-            $_SESSION["login"] = true;
+            $_SESSION["login"] = true; // jika cookienya ada masuk ke session login
         }
     }
     // kalo sudah login, jangan tampilkan halaman login
@@ -39,11 +40,13 @@
                 // set session
                 $_SESSION["login"] = true; // variable session keynya login diisi boolean
 
-                // set cookies
+                // tambah pengecekan - jika remembernya di cek set cookie
                 if (isset($_POST["remember"])) {
-                    // set cookie
+                    // set cookie dengan algoritma hash
+                    // id dari $row table user dan key dari username dan acak menggunakan has
+                    // tambahkan time expirednya 1menit, harus sama
                     setcookie('id', $row['id'], time() + 60);
-                    setcookie('key', hash('sha256', $row['username']), time() + 60);
+                    setcookie('key', hash('sha256', $row['username']), time() + 60); // ngambil dari username yg sudah di hash
                 }
                 header("Location: index.php");
                 exit;

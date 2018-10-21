@@ -8,7 +8,7 @@
     	$result = mysqli_query($db, $query);
     	$rows = []; // Membuat array assosiatif kotak kosong
     	while ($mhs = mysqli_fetch_assoc($result)) { // ketika diambil datanya menggunakan looping
-    		$rows[] = $mhs; // akan menambahkan element baru diakhir tiap array tabel mahasiswa
+    	$rows[] = $mhs; // akan menambahkan element baru diakhir tiap array tabel mahasiswa
     	}
 
     	return $rows; // harus dikembalikan kotaknya
