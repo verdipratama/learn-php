@@ -73,9 +73,9 @@
 
     <form action="" method="post">
             <label for="username"></label>
-            USERNAME: <input type="text" name="username" id="username"><br>
+            USERNAME: <input type="text" name="username" id="username" required><br>
             <label for="password"></label>
-            PASSWORD: <input type="password" name="password" id="password"><br>
+            PASSWORD: <input type="password" name="password" id="password" required><br>
             <label for="remember"></label>
             REMEMBER <input type="checkbox" name="remember" id="remember"><br>
             <button type="submit" name="login">Login!</button>
