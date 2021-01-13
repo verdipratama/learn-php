@@ -1,13 +1,12 @@
-<?php 
+<?php
 
 echo "<h2>www.malasngoding.com</h2>";
 echo "<br/>";
 
-
 $kalimat = "belajar pemrogaman di malas ngoding";
 
 // memisahkan string menjadi array
-$data = explode(" " , $kalimat);
+$data = explode(" ", $kalimat);
 
 // string menjadi array
 print_r($data);
@@ -25,4 +24,3 @@ echo "<br/>";
 echo " Data 4 = " . $data[3];
 echo "<br/>";
 echo " Data 5 = " . $data[4];
-?>

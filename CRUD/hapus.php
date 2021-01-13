@@ -1,29 +1,28 @@
 <?php
-    // jalankan sessionnya terlebih dahulu
-    session_start();
-    // jika ! tidak ada session login maka?
-    if ( !isset($_SESSION["login"]) ) {
-        header("Location: login.php"); // kembalikan ke halaman login
-        exit;
-    }
-    
-    require 'function.php';
+// jalankan sessionnya terlebih dahulu
+session_start();
+// jika ! tidak ada session login maka?
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php"); // kembalikan ke halaman login
+    exit;
+}
 
-    $id = $_GET["id"];
-    
-    if ( hapus($id) > 0) {
-        echo "
+require 'function.php';
+
+$id = $_GET["id"];
+
+if (hapus($id) > 0) {
+    echo "
         <script>
         alert('data berhasil dihapus!');
         document.location.href = 'index.php';
         </script>
         ";
-    } else {
-        echo "
+} else {
+    echo "
         <script>
         alert('data gagal dihapus!');
         document.location.href = 'index.php';
         </script>
         ";
-    }
-?>
+}

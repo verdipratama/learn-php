@@ -10,57 +10,61 @@
 
     $cars = [
         [
-            "merk" => "BMW",
-            "tahun" => "2018",
+            "merk"      => "BMW",
+            "tahun"     => "2018",
             "transmisi" => "Automatic",
-            "body" => "Sedan",
-            "gambar" => "1.png"
+            "body"      => "Sedan",
+            "gambar"    => "1.png",
         ],
         [
-            "merk" => "Mercy",
-            "tahun" => "2012",
+            "merk"      => "Mercy",
+            "tahun"     => "2012",
             "transmisi" => "Manual",
-            "body" => "SUV",
-            "gambar" => "2.png"
+            "body"      => "SUV",
+            "gambar"    => "2.png",
         ],
         [
-            "merk" => "Audi",
-            "tahun" => "2016",
+            "merk"      => "Audi",
+            "tahun"     => "2016",
             "transmisi" => "Automatic",
-            "body" => "Sedan",
-            "gambar" => "3.jpeg"
+            "body"      => "Sedan",
+            "gambar"    => "3.jpeg",
         ],
         [
-            "merk" => "Toyota",
-            "tahun" => "2010",
+            "merk"      => "Toyota",
+            "tahun"     => "2010",
             "transmisi" => "Manual",
-            "body" => "SUV",
-            "gambar" => "4.jpg"
-        ]    
+            "body"      => "SUV",
+            "gambar"    => "4.jpg",
+        ],
     ];
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tugas 5 Array</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="" />
-    <script src=""></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tugas 5 Array</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="" />
+  <script src=""></script>
 </head>
+
 <body>
-    <h1>List Mobil Dijual 2018</h1>
-    <ul>
-        <?php foreach ($cars as $c):?>
-                <li> <!--- AWAS SPASI MEMPENGARUHI URL GET -->
-                    <a href="2.php?merk=<?php echo $c ["merk"] ?>
-                    &tahun=<?php echo $c ["tahun"] ?>
-                    &transmisi=<?php echo $c ["transmisi"]?>
-                    &body=<?php echo $c ["body"] ?>
-                    &gambar=<?php echo $c ["gambar"] ?>"><?php echo $c ["merk"]?></a>
-                </li>
-        <?php endforeach;?>
-    </ul>
+  <h1>List Mobil Dijual 2018</h1>
+  <ul>
+    <?php foreach ($cars as $c): ?>
+    <li>
+      <!--- AWAS SPASI MEMPENGARUHI URL GET -->
+      <a href="2.php?merk=<?php echo $c["merk"] ?>
+                    &tahun=<?php echo $c["tahun"] ?>
+                    &transmisi=<?php echo $c["transmisi"] ?>
+                    &body=<?php echo $c["body"] ?>
+                    &gambar=<?php echo $c["gambar"] ?>"><?php echo $c["merk"] ?></a>
+    </li>
+    <?php endforeach;?>
+  </ul>
 </body>
+
 </html>

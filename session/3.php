@@ -1,5 +1,4 @@
 <?php
-    // function untuk menghilangkan sessionnya
-    session_start();
-    session_destroy();
-?>
+// function untuk menghilangkan sessionnya
+session_start();
+session_destroy();
