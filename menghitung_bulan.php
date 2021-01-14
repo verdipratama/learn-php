@@ -1,6 +1,6 @@
 <?php
-$d1       = strtotime("2016-02-15");
-$d2       = strtotime("2016-03-15");
+$d1       = strtotime("2021-02-15");
+$d2       = strtotime("2021-03-15");
 $min_date = min($d1, $d2);
 $max_date = max($d1, $d2);
 $i        = 1;
