@@ -10,5 +10,5 @@ while (($min_date = strtotime("+1 MONTH", $min_date)) <= $max_date) {
 echo $i;
 
 // QUERY MYSQL
-// SELECT TIMESTAMPDIFF(MONTH, '2016-11-28', '2016-12-27')
-// SOURCE = https: //isnugro.wordpress.com/2016/09/07/menghitung-jumlah-bulan-menggunakan-php/
+// SELECT TIMESTAMPDIFF(MONTH, '2021-11-28', '2021-12-27')
+// SOURCE = https: //isnugro.wordpress.com/2021/09/07/menghitung-jumlah-bulan-menggunakan-php/
