@@ -2,7 +2,7 @@
 function number_of_working_days($from, $to)
 {
     $workingDays = [1, 2, 3, 4, 5]; # date format = N (1 = Monday, ...)
-    $holidayDays = ['*-12-25', '*-01-01', '2015-11-23']; # variable and fixed holidays
+    $holidayDays = ['*-12-25', '*-01-01', '2021-11-23']; # variable and fixed holidays
 
     $from = new DateTime($from);
     $to   = new DateTime($to);
