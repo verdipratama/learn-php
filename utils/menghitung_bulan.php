@@ -4,6 +4,7 @@ $d2       = strtotime("2021-03-15");
 $min_date = min($d1, $d2);
 $max_date = max($d1, $d2);
 $i        = 1;
+
 while (($min_date = strtotime("+1 MONTH", $min_date)) <= $max_date) {
     $i++;
 }
