@@ -8,6 +8,7 @@ function halfHourTimes()
             return date('g:ia', $time);
         }
     };
+
     $halfHourSteps = range(0, 47 * 1800, 1800);
     return array_map($formatter, $halfHourSteps);
 }
