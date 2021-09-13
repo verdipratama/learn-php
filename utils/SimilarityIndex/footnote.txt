@@ -1,0 +1,2 @@
+https://stackoverflow.com/questions/41821265/php-how-to-get-intersection-between-two-strings-in-php/41821532#41821532
+https://stackoverflow.com/questions/16925150/php-string-comparison-and-similarity-index/38236357
